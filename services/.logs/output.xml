@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.2 on darwin)" generated="2024-03-19T21:52:34.322142" rpa="true" schemaversion="5">
+<suite id="s1" name="Tasks" source="/Users/victorlance93/Documents/Projetos/QAx/projects/smartbit-robot/services/Tasks.robot">
+<test id="s1-t1" name="Testando a API" line="7">
+<kw name="Set user token" owner="Services">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-03-19T21:52:34.355352" level="INFO">${payload} = {'email': 'sac@smartbit.com', 'password': 'pwd123'}</msg>
+<var>${payload}</var>
+<arg>email=sac@smartbit.com</arg>
+<arg>password=pwd123</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-03-19T21:52:34.355232" elapsed="0.000137"/>
+</kw>
+<kw name="POST" owner="RequestsLibrary">
+<msg time="2024-03-19T21:52:34.442775" level="INFO">POST Request : url=http://localhost:3333/sessions 
+ path_url=/sessions 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '51', 'Content-Type': 'application/json'} 
+ body=b'{"email": "sac@smartbit.com", "password": "pwd123"}' 
+ </msg>
+<msg time="2024-03-19T21:52:34.442875" level="INFO">POST Response : url=http://localhost:3333/sessions 
+ status=200, reason=OK 
+ headers={'X-DNS-Prefetch-Control': 'off', 'X-Frame-Options': 'SAMEORIGIN', 'Strict-Transport-Security': 'max-age=15552000; includeSubDomains', 'X-Download-Options': 'noopen', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Access-Control-Allow-Origin': 'http://localhost:3000', 'Vary': 'Origin', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '213', 'ETag': 'W/"d5-tpvjtElArg2YgrIIDI4dWV389Sk"', 'Date': 'Wed, 20 Mar 2024 00:52:34 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"user":{"id":1,"name":"Atendimento","email":"sac@smartbit.com"},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzEwODk1OTU0LCJleHAiOjE3MTE1MDA3NTR9.lZlucJg2Gtj30T1J85lOMDjFOrZOr512oFlZJRXInEQ"} 
+ </msg>
+<msg time="2024-03-19T21:52:34.442998" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>url=http://localhost:3333/sessions</arg>
+<arg>json=${payload}</arg>
+<doc>Sends a POST request.</doc>
+<status status="PASS" start="2024-03-19T21:52:34.355425" elapsed="0.087593"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-03-19T21:52:34.443607" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzEwODk1OTU0LCJleHAiOjE3MTE1MDA3NTR9.lZlucJg2Gtj30T1J85lOMDjFOrZOr512oFlZJRXInEQ</msg>
+<var>${token}</var>
+<arg>Bearer ${response.json()}[token]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-03-19T21:52:34.443159" elapsed="0.000465"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-03-19T21:52:34.443852" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzEwODk1OTU0LCJleHAiOjE3MTE1MDA3NTR9.lZlucJg2Gtj30T1J85lOMDjFOrZOr512oFlZJRXInEQ</msg>
+<arg>${token}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-03-19T21:52:34.443717" elapsed="0.000160"/>
+</kw>
+<status status="PASS" start="2024-03-19T21:52:34.355007" elapsed="0.088917"/>
+</kw>
+<kw name="Get account by name" owner="Services">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-03-19T21:52:34.444419" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzEwODk1OTU0LCJleHAiOjE3MTE1MDA3NTR9.lZlucJg2Gtj30T1J85lOMDjFOrZOr512oFlZJRXInEQ'}</msg>
+<var>${headers}</var>
+<arg>Authorization=${token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-03-19T21:52:34.444271" elapsed="0.000163"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-03-19T21:52:34.444614" level="INFO">${params} = {'name': 'Tony Stark'}</msg>
+<var>${params}</var>
+<arg>name=${name}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-03-19T21:52:34.444501" elapsed="0.000133"/>
+</kw>
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2024-03-19T21:52:34.455448" level="INFO">GET Request : url=http://localhost:3333/accounts?name=Tony+Stark 
+ path_url=/accounts?name=Tony+Stark 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzEwODk1OTU0LCJleHAiOjE3MTE1MDA3NTR9.lZlucJg2Gtj30T1J85lOMDjFOrZOr512oFlZJRXInEQ'} 
+ body=None 
+ </msg>
+<msg time="2024-03-19T21:52:34.455519" level="INFO">GET Response : url=http://localhost:3333/accounts?name=Tony+Stark 
+ status=200, reason=OK 
+ headers={'X-DNS-Prefetch-Control': 'off', 'X-Frame-Options': 'SAMEORIGIN', 'Strict-Transport-Security': 'max-age=15552000; includeSubDomains', 'X-Download-Options': 'noopen', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Access-Control-Allow-Origin': 'http://localhost:3000', 'Vary': 'Origin', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '219', 'ETag': 'W/"db-za4/rmgsEr/Mb428uIPpWOwLs9o"', 'Date': 'Wed, 20 Mar 2024 00:52:34 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"data":[{"imc":29.4,"id":37,"name":"Tony Stark","email":"ironman@hotmail.com","cpf":"97559764002","weight":"85.00","height":170,"createdAt":"2024-03-08T10:59:58.264Z","updatedAt":"2024-03-19T10:14:50.653Z"}],"total":1} 
+ </msg>
+<msg time="2024-03-19T21:52:34.455607" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>url=http://localhost:3333/accounts</arg>
+<arg>params=${params}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2024-03-19T21:52:34.444697" elapsed="0.010928"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-03-19T21:52:34.456155" level="INFO">{'data': [{'imc': 29.4, 'id': 37, 'name': 'Tony Stark', 'email': 'ironman@hotmail.com', 'cpf': '97559764002', 'weight': '85.00', 'height': 170, 'createdAt': '2024-03-08T10:59:58.264Z', 'updatedAt': '2024-03-19T10:14:50.653Z'}], 'total': 1}</msg>
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-03-19T21:52:34.455742" elapsed="0.000446"/>
+</kw>
+<arg>Tony Stark</arg>
+<status status="PASS" start="2024-03-19T21:52:34.444088" elapsed="0.012148"/>
+</kw>
+<status status="PASS" start="2024-03-19T21:52:34.354792" elapsed="0.101570"/>
+</test>
+<doc>Arquivo para testar o consumo da API com tasks</doc>
+<status status="PASS" start="2024-03-19T21:52:34.323071" elapsed="0.133651"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Tasks">Tasks</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

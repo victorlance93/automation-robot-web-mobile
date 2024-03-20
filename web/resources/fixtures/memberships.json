@@ -1,0 +1,82 @@
+{
+  "create": {
+    "account": {
+      "name": "Thiago Ventura",
+      "email": "thiago@ventura.com",
+      "cpf": "5980570080"
+    },
+    "plan": {
+      "name": "Plano Black",
+      "id": 2,
+      "price": 79.99
+    },
+
+    "credit_card": {
+      "card_number": "4242424242424242",
+      "holder": "Thiago Ventura",
+      "month": "12",
+      "year": "2031",
+      "cvv": "123"
+    }
+  },
+  "duplicate": {
+    "account": {
+      "name": "Justin Bieber",
+      "email": "justin@bieber.com",
+      "cpf": "03796320040"
+    },
+    "plan": {
+      "name": "Plano Smart",
+      "id": 1,
+      "price": 99.99
+    },
+
+    "credit_card": {
+      "card_number": "4000056655665556",
+      "holder": "Justin Bieber",
+      "month": "11",
+      "year": "2030",
+      "cvv": "321"
+    }
+  },
+  "search": {
+    "account": {
+      "name": "Nilson Paiva",
+      "email": "nspaiva@yahoo.com",
+      "cpf": "47662078078"
+    },
+    "plan": {
+      "name": "Plano Smart",
+      "id": 1,
+      "price": 99.99
+    },
+
+    "credit_card": {
+      "card_number": "4000056655665556",
+      "holder": "Nilson Paiva",
+      "month": "12",
+      "year": "2032",
+      "cvv": "965"
+    }
+  },
+  "remove": {
+    "account": {
+      "name": "Ezide Lance",
+      "email": "ezide_lance@hotmail.com",
+      "cpf": "37492283024"
+    },
+    "plan": {
+      "name": "Plano Smart",
+      "id": 2,
+      "price": 79.99
+    },
+
+    "credit_card": {
+      "card_number": "4000056655665556",
+      "holder": "Ezide Lance",
+      "month": "08",
+      "year": "2029",
+      "cvv": "546"
+    }
+  }
+}
