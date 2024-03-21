@@ -1,7 +1,8 @@
 *** Settings ***
 Documentation    Camada de integração com a API 
 
-Library    RequestsLibrary
+Library      RequestsLibrary
+Variables    Env.py
 
 *** Keywords ***
 Set user token
@@ -11,7 +12,7 @@ Set user token
     ...               password=pwd123
     
     ${response}        POST
-    ...         url=http://localhost:3333/sessions
+    ...         url=${API_URL}/sessions
     ...         json=${payload}
     
     ${token}    Set Variable    Bearer ${response.json()}[token]
@@ -29,7 +30,7 @@ Get account by name
 
     
     ${response}    GET
-    ...            url=http://localhost:3333/accounts
+    ...            url=${API_URL}/accounts
     ...            params=${params}
     ...            headers=${headers}
     [return]    ${response.json()}[data][0]

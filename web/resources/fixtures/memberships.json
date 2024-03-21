@@ -12,7 +12,7 @@
     },
 
     "credit_card": {
-      "card_number": "4242424242424242",
+      "number": "4242424242424242",
       "holder": "Thiago Ventura",
       "month": "12",
       "year": "2031",
@@ -32,7 +32,7 @@
     },
 
     "credit_card": {
-      "card_number": "4000056655665556",
+      "number": "4000056655665556",
       "holder": "Justin Bieber",
       "month": "11",
       "year": "2030",
@@ -52,7 +52,7 @@
     },
 
     "credit_card": {
-      "card_number": "4000056655665556",
+      "number": "4000056655665556",
       "holder": "Nilson Paiva",
       "month": "12",
       "year": "2032",

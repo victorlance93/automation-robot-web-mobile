@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation         Arquivo principal do projeto Robot 
 
+Variables           Env.py
 Library             JSONLibrary
 Library             Browser 
 Library             ../../libs/Account.py
@@ -20,7 +21,7 @@ Resource            pages/components/Modal.resource
 
 Start session
     New Browser    browser=chromium    headless=False
-    New Page    http://localhost:3000/
+    New Page    ${BASE_URL}
 
 Get Json fixture
     [Arguments]        ${file_name}    ${scenario}

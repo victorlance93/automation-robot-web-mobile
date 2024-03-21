@@ -9,7 +9,7 @@ Signin with document
     [Arguments]        ${cpf}
 
     Input Text    xpath=//android.widget.EditText[@resource-id="ipAddress"]
-    ...    192.168.1.8
+    ...    192.168.0.139
     
     Input Text    xpath=//android.widget.EditText[@resource-id="cpf"]
     ...    ${cpf}

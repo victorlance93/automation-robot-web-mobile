@@ -29,7 +29,7 @@ Select plan
 
 Fill card value
     [Arguments]    ${credit_card}    
-    Fill Text    css=input[name=card_number]        ${credit_card}[card_number]
+    Fill Text    css=input[name=card_number]        ${credit_card}[number]
     Fill Text    css=input[name=card_holder]        ${credit_card}[holder] 
     Fill Text    css=input[name=card_month]         ${credit_card}[month]
     Fill Text    css=input[name=card_year]          ${credit_card}[year]
